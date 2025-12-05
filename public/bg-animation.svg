@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" style="position:fixed;width:100%;height:100%;top:0;left:0;z-index:-1">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#061a2b;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0b3d61;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#061a2b;stop-opacity:1" />
+    </linearGradient>
+    
+    <style>
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+        50% { transform: translateY(-30px) rotate(10deg); opacity: 0.5; }
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.2; r: 15px; }
+        50% { opacity: 0.6; r: 25px; }
+      }
+      @keyframes drift {
+        0% { transform: translateX(0px) translateY(0px); }
+        50% { transform: translateX(50px) translateY(-50px); }
+        100% { transform: translateX(0px) translateY(0px); }
+      }
+      @keyframes matrix-fall {
+        0% { transform: translateY(-100%); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(100%); opacity: 0; }
+      }
+      .hack-icon { animation: float 6s ease-in-out infinite; }
+      .pulse-circle { animation: pulse 4s ease-in-out infinite; }
+      .drift-element { animation: drift 8s ease-in-out infinite; }
+      .matrix-code { animation: matrix-fall 8s linear infinite; }
+    </style>
+  </defs>
+  
+  <!-- Background gradient -->
+  <rect width="1200" height="800" fill="url(#bgGradient)"/>
+  
+  <!-- Matrix falling code (left side) -->
+  <text x="80" y="0" font-family="monospace" font-size="18" fill="#87CEEB" opacity="0.4" class="matrix-code">
+    <tspan>1 0 1 1 0 1</tspan>
+    <tspan x="80" dy="30">0 1 1 0 1 0</tspan>
+    <tspan x="80" dy="30">1 0 1 0 1 1</tspan>
+    <tspan x="80" dy="30">0 1 0 1 1 0</tspan>
+  </text>
+  
+  <text x="1100" y="0" font-family="monospace" font-size="18" fill="#0b3d61" opacity="0.3" class="matrix-code" style="animation-delay:2s">
+    <tspan>1 1 0 1 0 1</tspan>
+    <tspan x="1100" dy="30">0 1 1 0 0 1</tspan>
+    <tspan x="1100" dy="30">1 0 1 1 0 0</tspan>
+    <tspan x="1100" dy="30">0 1 0 1 1 1</tspan>
+  </text>
+  
+  <!-- Pulsing lock symbols (security) -->
+  <g class="pulse-circle" style="animation-delay:0s">
+    <circle cx="150" cy="100" r="15" fill="none" stroke="#87CEEB" stroke-width="2"/>
+    <rect x="135" y="110" width="30" height="25" rx="2" fill="none" stroke="#87CEEB" stroke-width="1.5"/>
+    <path d="M 145 110 Q 145 100 150 100 Q 155 100 155 110" fill="none" stroke="#87CEEB" stroke-width="1.5"/>
+  </g>
+  
+  <g class="pulse-circle" style="animation-delay:1s">
+    <circle cx="1050" cy="200" r="15" fill="none" stroke="#5ab5d0" stroke-width="2"/>
+    <rect x="1035" y="210" width="30" height="25" rx="2" fill="none" stroke="#5ab5d0" stroke-width="1.5"/>
+    <path d="M 1045 210 Q 1045 200 1050 200 Q 1055 200 1055 210" fill="none" stroke="#5ab5d0" stroke-width="1.5"/>
+  </g>
+  
+  <g class="pulse-circle" style="animation-delay:2s">
+    <circle cx="300" cy="600" r="15" fill="none" stroke="#87CEEB" stroke-width="2"/>
+    <rect x="285" y="610" width="30" height="25" rx="2" fill="none" stroke="#87CEEB" stroke-width="1.5"/>
+    <path d="M 295 610 Q 295 600 300 600 Q 305 600 305 610" fill="none" stroke="#87CEEB" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Floating hack/shield symbols -->
+  <g class="hack-icon" style="animation-delay:0s">
+    <text x="200" y="300" font-size="40" fill="#87CEEB" opacity="0.4">⚔</text>
+  </g>
+  
+  <g class="hack-icon" style="animation-delay:1.5s">
+    <text x="900" y="500" font-size="45" fill="#0b3d61" opacity="0.3">🛡</text>
+  </g>
+  
+  <g class="hack-icon" style="animation-delay:3s">
+    <text x="400" y="150" font-size="35" fill="#5ab5d0" opacity="0.35">🔐</text>
+  </g>
+  
+  <!-- Drift nodes/network -->
+  <g class="drift-element" style="animation-delay:0s">
+    <circle cx="600" cy="100" r="8" fill="#87CEEB" opacity="0.5"/>
+    <circle cx="650" cy="150" r="6" fill="#5ab5d0" opacity="0.4"/>
+    <line x1="600" y1="100" x2="650" y2="150" stroke="#87CEEB" stroke-width="1" opacity="0.3"/>
+  </g>
+  
+  <g class="drift-element" style="animation-delay:2s">
+    <circle cx="250" cy="450" r="7" fill="#0b3d61" opacity="0.4"/>
+    <circle cx="300" cy="500" r="5" fill="#87CEEB" opacity="0.3"/>
+    <line x1="250" y1="450" x2="300" y2="500" stroke="#0b3d61" stroke-width="1" opacity="0.2"/>
+  </g>
+  
+  <g class="drift-element" style="animation-delay:4s">
+    <circle cx="950" cy="650" r="8" fill="#5ab5d0" opacity="0.4"/>
+    <circle cx="1000" cy="700" r="6" fill="#87CEEB" opacity="0.3"/>
+    <line x1="950" y1="650" x2="1000" y2="700" stroke="#5ab5d0" stroke-width="1" opacity="0.2"/>
+  </g>
+  
+  <!-- Additional floating elements -->
+  <g class="hack-icon" style="animation-delay:2.5s">
+    <text x="750" y="250" font-size="32" fill="#87CEEB" opacity="0.3">🔓</text>
+  </g>
+  
+  <g class="hack-icon" style="animation-delay:4s">
+    <text x="100" y="700" font-size="38" fill="#0b3d61" opacity="0.25">🎯</text>
+  </g>
+  
+  <!-- Subtle grid background -->
+  <defs>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#87CEEB" stroke-width="0.5" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="800" fill="url(#grid)"/>
+</svg>

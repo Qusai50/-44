@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>خدمات الشبكات — IncByteLogic</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Code background -->
+    <div class="code-bg"></div>
+
+    <header class="site-header">
+      <div class="logo-wrap">
+        <a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;">
+          <img src="logo.svg" alt="IncByteLogic logo" class="logo" />
+          <h1>IncByteLogic</h1>
+        </a>
+      </div>
+      <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="login.html" class="login-btn">تسجيل الدخول</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Service Header Indicator -->
+      <section class="service-header">
+        <div class="service-badge">🌐</div>
+        <h2>خدمات الشبكات</h2>
+        <p>تصميم وإدارة شبكات آمنة وموثوقة لمؤسستك</p>
+      </section>
+
+      <!-- Services List -->
+      <section class="services-list">
+        <div class="service-item">
+          <div class="service-icon">🏗️</div>
+          <h3>تصميم وبناء شبكات آمنة</h3>
+          <p>تصميم متخصص حسب احتياجات مؤسستك، اختيار التكنولوجيا المناسبة، بناء بنية تحتية قوية.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🔧</div>
+          <h3>إدارة وتحديث البنية التحتية</h3>
+          <p>إدارة مستمرة للشبكة، تحديثات دورية، صيانة استباقية وإصلاح سريع للأعطال.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🔐</div>
+          <h3>حلول VPN وتشفير الاتصالات</h3>
+          <p>أنفاق VPN آمنة، تشفير كامل البيانات، حماية الاتصالات البعيدة والعاملين بالعمل من المنزل.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">📊</div>
+          <h3>مراقبة الشبكة 24/7</h3>
+          <p>مراقبة مستمرة للشبكة، إنذارات فورية عند اكتشاف المشاكل، تقارير يومية مفصلة.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🚧</div>
+          <h3>فصل الشبكات الحساسة</h3>
+          <p>تقسيم الشبكة إلى قطاعات منفصلة (Segmentation)، عزل الأنظمة الحساسة، منع الوصول غير المصرح.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">⚙️</div>
+          <h3>إدارة أجهزة التوجيه والمبدلات</h3>
+          <p>تكوين آمن للأجهزة، تحديثات البرامج الثابتة، مراقبة الأداء والأمان.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🧪</div>
+          <h3>اختبار استقرار وأداء الشبكة</h3>
+          <p>اختبارات أداء دورية، اختبارات حمل للتأكد من الاستقرار، تقارير تفصيلية عن الأداء.</p>
+        </div>
+      </section>
+
+      <!-- Animated visuals -->
+      <section class="cyber-section">
+        <h2>تصور الشبكة</h2>
+        <div class="cyber-visuals">
+          <div class="visual-card">
+            <img src="images/network-flow.svg" alt="Network analysis" />
+            <h3>تدفق البيانات</h3>
+          </div>
+          <div class="visual-card">
+            <img src="images/hack1.svg" alt="Security" />
+            <h3>الحماية الشاملة</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section class="contact">
+        <h2>اطلب خدمة الشبكات</h2>
+        <p>استكمل النموذج التفصيلي للحصول على تقدير دقيق للسعر</p>
+        <a href="request-form.html" class="request-link">ملء نموذج الطلب →</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <strong>IncByteLogic</strong> — أمن سيبراني احترافي. البريد: incbytelogic@gmail.com — الموقع: عمان، الأردن</p>
+    </footer>
+
+    <script>
+      document.querySelectorAll('.service-request-form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const service = form.dataset.service;
+          const name = form.querySelector('input[type="text"]').value;
+          const email = form.querySelector('input[type="email"]').value;
+          const problem = form.querySelector('textarea').value;
+          
+          const request = {
+            id: Date.now(),
+            service: service,
+            name: name,
+            email: email,
+            problem: problem,
+            timestamp: new Date().toLocaleString()
+          };
+          
+          const requests = JSON.parse(localStorage.getItem('service-requests') || '[]');
+          requests.push(request);
+          localStorage.setItem('service-requests', JSON.stringify(requests));
+          
+          alert(`✓ تم إرسال طلب ${service} بنجاح!\nسيتواصل معك فريقنا على: ${email}`);
+          form.reset();
+        });
+      });
+    </script>
+  </body>
+</html>

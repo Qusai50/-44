@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>خدمات البرمجة — IncByteLogic</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Code background -->
+    <div class="code-bg"></div>
+
+    <header class="site-header">
+      <div class="logo-wrap">
+        <a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;">
+          <img src="logo.svg" alt="IncByteLogic logo" class="logo" />
+          <h1>IncByteLogic</h1>
+        </a>
+      </div>
+      <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="login.html" class="login-btn">تسجيل الدخول</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Service Header Indicator -->
+      <section class="service-header">
+        <div class="service-badge">💻</div>
+        <h2>خدمات البرمجة</h2>
+        <p>تطوير أدوات وحلول برمجية متخصصة في الأمن السيبراني</p>
+      </section>
+
+      <!-- Services List -->
+      <section class="services-list">
+        <div class="service-item">
+          <div class="service-icon">🛠️</div>
+          <h3>تطوير أدوات أمان مخصصة</h3>
+          <p>برامج مخصصة حسب احتياجات مؤسستك، أدوات متقدمة لتحليل التهديدات، برامج مراقبة وإدارة.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">⚙️</div>
+          <h3>سكربتات أتمتة وفحص أمني</h3>
+          <p>أتمتة العمليات الأمنية، سكربتات فحص دورية، تقليل المهام اليدوية وزيادة الكفاءة.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🤖</div>
+          <h3>تطوير بوتات كشف التسلل</h3>
+          <p>بوتات ذكية للكشف التلقائي عن الهجمات، تحليل الأنماط، استجابة فورية للتهديدات.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">📈</div>
+          <h3>برامج تحليل وتتبع التهديدات</h3>
+          <p>برامج متقدمة لتحليل البيانات، تتبع التهديدات، رسوم بيانية توضيحية ودقيقة.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">📊</div>
+          <h3>واجهات إدارة أمان مستخدمة</h3>
+          <p>لوحات تحكم احترافية (Dashboard)، واجهات سهلة الاستخدام، تقارير فورية وتفصيلية.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🔒</div>
+          <h3>تطبيقات ويب وجوال آمنة</h3>
+          <p>تطوير تطبيقات بمعايير أمنية عالية، اختبارات أمان شاملة، حماية البيانات الحساسة.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-icon">🆔</div>
+          <h3>تكامل أنظمة إدارة الهويات</h3>
+          <p>تطبيق IAM متقدم، مصادقة متعددة العوامل، إدارة صلاحيات المستخدمين.</p>
+        </div>
+      </section>
+
+      <!-- Animated visuals -->
+      <section class="cyber-section">
+        <h2>حلول برمجية متقدمة</h2>
+        <div class="cyber-visuals">
+          <div class="visual-card">
+            <img src="images/hack-terminal.svg" alt="Hacking terminal" />
+            <h3>أدوات التطوير</h3>
+          </div>
+          <div class="visual-card">
+            <img src="images/hack2.svg" alt="Database" />
+            <h3>قواعد البيانات الآمنة</h3>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section class="contact">
+        <h2>اطلب خدمة البرمجة</h2>
+        <p>استكمل النموذج التفصيلي للحصول على تقدير دقيق للسعر</p>
+        <a href="request-form.html" class="request-link">ملء نموذج الطلب →</a>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <strong>IncByteLogic</strong> — أمن سيبراني احترافي. البريد: incbytelogic@gmail.com — الموقع: عمان، الأردن</p>
+    </footer>
+
+    <script>
+      document.querySelectorAll('.service-request-form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const service = form.dataset.service;
+          const name = form.querySelector('input[type="text"]').value;
+          const email = form.querySelector('input[type="email"]').value;
+          const problem = form.querySelector('textarea').value;
+          
+          const request = {
+            id: Date.now(),
+            service: service,
+            name: name,
+            email: email,
+            problem: problem,
+            timestamp: new Date().toLocaleString()
+          };
+          
+          const requests = JSON.parse(localStorage.getItem('service-requests') || '[]');
+          requests.push(request);
+          localStorage.setItem('service-requests', JSON.stringify(requests));
+          
+          alert(`✓ تم إرسال طلب ${service} بنجاح!\nسيتواصل معك فريقنا على: ${email}`);
+          form.reset();
+        });
+      });
+    </script>
+  </body>
+</html>

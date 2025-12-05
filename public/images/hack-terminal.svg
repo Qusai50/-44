@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs>
+    <style>
+      @keyframes scan-line {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(300%); }
+      }
+      @keyframes blink {
+        0%, 49%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+      }
+      @keyframes circuit-flow {
+        0% { stroke-dashoffset: 100; opacity: 0; }
+        50% { opacity: 1; }
+        100% { stroke-dashoffset: 0; opacity: 0; }
+      }
+      .scan { animation: scan-line 3s linear infinite; }
+      .blink-dot { animation: blink 0.8s ease-in-out infinite; }
+      .circuit { animation: circuit-flow 2s linear infinite; }
+      .circuit-2 { animation: circuit-flow 2s linear infinite 0.5s; }
+    </style>
+    <linearGradient id="hackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0b3d61;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Hacking terminal screen effect -->
+  <rect width="400" height="300" fill="#061a2b" stroke="url(#hackGrad)" stroke-width="3" rx="8"/>
+  
+  <!-- Screen border glow -->
+  <rect width="400" height="300" fill="none" stroke="#87CEEB" stroke-width="1" opacity="0.3" rx="8"/>
+  
+  <!-- Circuit lines -->
+  <path d="M 50 80 L 150 80 L 150 180 L 300 180" 
+        stroke="#87CEEB" stroke-width="2" fill="none" stroke-dasharray="100" class="circuit"/>
+  
+  <path d="M 80 120 L 200 120 L 200 200 L 320 200" 
+        stroke="#5ab5d0" stroke-width="2" fill="none" stroke-dasharray="100" class="circuit-2"/>
+  
+  <!-- Code symbols -->
+  <text x="20" y="50" font-family="monospace" font-size="16" fill="#87CEEB" opacity="0.7">$ hack_scan</text>
+  <text x="20" y="100" font-family="monospace" font-size="14" fill="#5ab5d0" opacity="0.6">[████████░░] 80%</text>
+  <text x="20" y="140" font-family="monospace" font-size="13" fill="#87CEEB" opacity="0.5">Analyzing network...</text>
+  <text x="20" y="180" font-family="monospace" font-size="13" fill="#5ab5d0" opacity="0.5">Threads: 256</text>
+  <text x="20" y="220" font-family="monospace" font-size="13" fill="#87CEEB" opacity="0.5">Status: ACTIVE</text>
+  
+  <!-- Blinking indicators -->
+  <circle cx="380" cy="30" r="5" fill="#00ff00" class="blink-dot"/>
+  <circle cx="380" cy="70" r="5" fill="#ff6600" class="blink-dot" style="animation-delay:0.3s"/>
+  
+  <!-- Scan line effect -->
+  <line x1="0" y1="0" x2="400" y2="0" stroke="#87CEEB" stroke-width="1" opacity="0.8" class="scan"/>
+</svg>

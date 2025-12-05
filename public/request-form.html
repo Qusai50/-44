@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>نموذج طلب الخدمة — IncByteLogic</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Code background -->
+    <div class="code-bg"></div>
+
+    <header class="site-header">
+      <div class="logo-wrap">
+        <a href="index.html" style="text-decoration:none;color:inherit;display:flex;align-items:center;gap:12px;">
+          <img src="logo.svg" alt="IncByteLogic logo" class="logo" />
+          <h1>IncByteLogic</h1>
+        </a>
+      </div>
+      <nav>
+        <a href="index.html">الرئيسية</a>
+        <a href="login.html" class="login-btn">تسجيل الدخول</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Form Header -->
+      <section class="form-header">
+        <h2>نموذج طلب الخدمة</h2>
+        <p>أخبرنا عن احتياجاتك ومشكلتك لنقدم لك أفضل حل</p>
+      </section>
+
+      <!-- Main Form -->
+      <section class="form-container">
+        <form id="serviceForm" class="detailed-form">
+          
+          <!-- Personal Info Section -->
+          <div class="form-section">
+            <h3>معلومات الاتصال</h3>
+            <div class="form-group">
+              <label for="name">الاسم الكامل*</label>
+              <input type="text" id="name" name="name" placeholder="أدخل اسمك الكامل" required />
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">البريد الإلكتروني*</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">رقم الهاتف / الواتس*</label>
+                <input type="tel" id="phone" name="phone" placeholder="09xxxxxxxxx" required />
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Type -->
+          <div class="form-section">
+            <h3>نوع الخدمة</h3>
+            <div class="radio-group">
+              <label class="radio-option">
+                <input type="radio" name="service" value="الأمن السيبراني" required />
+                <span>🔐 الأمن السيبراني</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="service" value="الشبكات" />
+                <span>🌐 الشبكات</span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="service" value="البرمجة" />
+                <span>💻 البرمجة</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Problem Description -->
+          <div class="form-section">
+            <h3>وصف المشكلة</h3>
+            <div class="form-group">
+              <label for="problem">شرح تفصيلي للمشكلة أو الاحتياج*</label>
+              <textarea id="problem" name="problem" placeholder="اشرح مشكلتك بالتفصيل... (مثلاً: الشركة تحتاج لفحص أمني شامل، أنظمة قديمة معرضة للاختراق، إلخ)" rows="6" required></textarea>
+            </div>
+          </div>
+
+          <!-- Problem Severity Rating -->
+          <div class="form-section">
+            <h3>مستوى خطورة المشكلة</h3>
+            <div class="rating-group">
+              <label for="severity">اختر من 1-10 (حيث 10 هي الأخطر)</label>
+              <div class="rating-slider-container">
+                <input type="range" id="severity" name="severity" min="1" max="10" value="5" class="rating-slider" />
+                <div class="rating-display">
+                  <span id="severityValue">5</span> / 10
+                </div>
+              </div>
+              <div class="severity-labels">
+                <span>منخفض</span>
+                <span>متوسط</span>
+                <span>عالي جداً</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pricing Estimate -->
+          <div class="form-section">
+            <h3>تقدير السعر</h3>
+            <div class="pricing-info">
+              <p>السعر يعتمد على:</p>
+              <ul>
+                <li>مستوى خطورة المشكلة</li>
+                <li>حجم المشروع</li>
+                <li>المدة الزمنية المطلوبة</li>
+                <li>نوع الخدمة المختارة</li>
+              </ul>
+              <div class="price-estimate">
+                <h4>التقدير الأولي:</h4>
+                <div class="estimate-display">
+                  <span id="estimatedPrice">500</span> د.أ
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Notes -->
+          <div class="form-section">
+            <h3>ملاحظات إضافية (اختياري)</h3>
+            <div class="form-group">
+              <textarea id="notes" name="notes" placeholder="أي معلومات إضافية تود أن تخبرنا عنها..." rows="4"></textarea>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="form-section">
+            <button type="submit" class="submit-btn">✓ إرسال الطلب</button>
+          </div>
+        </form>
+
+        <!-- Success Message (Hidden) -->
+        <div id="successMessage" class="success-message" style="display:none;">
+          <div class="success-content">
+            <h3>✓ تم إرسال طلبك بنجاح!</h3>
+            <p>شكراً لاختيارك IncByteLogic</p>
+            <p>سيتواصل معك فريقنا في أقرب وقت على البريد أو الواتس</p>
+            <button onclick="window.location.href='index.html'" class="back-btn">العودة للرئيسية</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <strong>IncByteLogic</strong> — أمن سيبراني احترافي. البريد: incbytelogic@gmail.com — الموقع: عمان، الأردن — واتس: 0780502944</p>
+    </footer>
+
+    <script>
+      // Pricing configuration
+      const PRICE_MIN = 20;
+      const PRICE_MAX = 200;
+
+      // Per-service multipliers (adjust as needed)
+      const serviceMultipliers = {
+        'الأمن السيبراني': 1.4,
+        'الشبكات': 1.15,
+        'البرمجة': 1.0
+      };
+
+      // Calculate price based on severity and selected service
+      function calculatePrice() {
+        const severity = parseInt(document.getElementById('severity').value, 10) || 1;
+        const ratio = (severity - 1) / 9; // 0..1
+        const basePrice = Math.round(PRICE_MIN + ratio * (PRICE_MAX - PRICE_MIN));
+
+        // Determine selected service multiplier
+        let selectedService = document.querySelector('input[name="service"]:checked');
+        selectedService = selectedService ? selectedService.value : null;
+        const multiplier = serviceMultipliers[selectedService] || 1.0;
+
+        const finalPrice = Math.round(basePrice * multiplier);
+
+        document.getElementById('estimatedPrice').textContent = finalPrice;
+        document.getElementById('severityValue').textContent = severity;
+      }
+
+      // Save a request into localStorage
+      function saveRequest(formData) {
+        const requests = JSON.parse(localStorage.getItem('service-requests') || '[]');
+        requests.push(formData);
+        localStorage.setItem('service-requests', JSON.stringify(requests));
+        renderSavedRequests();
+      }
+
+      // Render saved requests panel
+      function renderSavedRequests() {
+        const container = document.getElementById('savedRequestsPanel');
+        if (!container) return;
+        const requests = JSON.parse(localStorage.getItem('service-requests') || '[]');
+        if (requests.length === 0) {
+          container.innerHTML = '<p class="muted">لا توجد طلبات محفوظة.</p>';
+          return;
+        }
+
+        const rows = requests.slice().reverse().map(r => {
+          return `<div class="saved-request">
+            <div class="sr-header"><strong>${escapeHtml(r.name || '—')}</strong> — <span>${escapeHtml(r.service)}</span>
+              <button class="small-btn" data-id="${r.id}" onclick="deleteRequest(${r.id})">حذف</button>
+            </div>
+            <div class="sr-meta">${escapeHtml(r.timestamp)} — ${escapeHtml(r.email)} — ${escapeHtml(r.phone)}</div>
+            <div class="sr-body"><em>السعر المقدر: ${escapeHtml(r.estimatedPrice)} د.أ</em>
+            <p>${escapeHtml(r.problem)}</p>
+            <p class="muted">ملاحظات: ${escapeHtml(r.notes || '-')}</p></div>
+          </div>`;
+        }).join('');
+
+        container.innerHTML = `
+          <div class="saved-actions">
+            <button id="exportBtn" class="small-btn">تصدير JSON</button>
+            <input id="importFile" type="file" accept="application/json" style="display:none;" />
+            <button id="importBtn" class="small-btn">استيراد JSON</button>
+            <button id="clearBtn" class="small-btn danger">حذف الكل</button>
+          </div>
+          <div class="saved-list">${rows}</div>`;
+
+        document.getElementById('exportBtn').addEventListener('click', exportRequests);
+        document.getElementById('importBtn').addEventListener('click', () => document.getElementById('importFile').click());
+        document.getElementById('importFile').addEventListener('change', importRequestsFromFile);
+        document.getElementById('clearBtn').addEventListener('click', clearRequests);
+      }
+
+      // Escape HTML to avoid accidental injection in this demo
+      function escapeHtml(s) {
+        if (!s && s !== 0) return '';
+        return String(s)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#039;');
+      }
+
+      // Export requests as JSON file
+      function exportRequests() {
+        const requests = JSON.parse(localStorage.getItem('service-requests') || '[]');
+        const blob = new Blob([JSON.stringify(requests, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'service-requests.json';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      // Import requests from selected JSON file (merges)
+      function importRequestsFromFile(evt) {
+        const file = evt.target.files && evt.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = () => {
+          try {
+            const data = JSON.parse(reader.result);
+            if (!Array.isArray(data)) throw new Error('Invalid JSON format');
+            const existing = JSON.parse(localStorage.getItem('service-requests') || '[]');
+            const merged = existing.concat(data.map(d => ({ ...d, id: d.id || Date.now() + Math.floor(Math.random()*10000) })));
+            localStorage.setItem('service-requests', JSON.stringify(merged));
+            renderSavedRequests();
+            alert('تم استيراد الطلبات بنجاح.');
+          } catch (err) {
+            alert('فشل في قراءة الملف: ' + err.message);
+          }
+        };
+        reader.readAsText(file);
+        // reset input
+        evt.target.value = '';
+      }
+
+      // Delete single request by id
+      function deleteRequest(id) {
+        let requests = JSON.parse(localStorage.getItem('service-requests') || '[]');
+        requests = requests.filter(r => r.id !== id);
+        localStorage.setItem('service-requests', JSON.stringify(requests));
+        renderSavedRequests();
+      }
+
+      // Clear all requests
+      function clearRequests() {
+        if (!confirm('هل تريد حذف جميع الطلبات المحفوظة؟ هذا الإجراء لا يمكن التراجع عنه.')) return;
+        localStorage.removeItem('service-requests');
+        renderSavedRequests();
+      }
+
+      // Update price on severity slider change
+      document.getElementById('severity').addEventListener('change', calculatePrice);
+      document.getElementById('severity').addEventListener('input', calculatePrice);
+
+      // Update price on service selection change
+      document.querySelectorAll('input[name="service"]').forEach(radio => {
+        radio.addEventListener('change', calculatePrice);
+      });
+
+      // Form submission
+      document.getElementById('serviceForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const formData = {
+          id: Date.now(),
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          phone: document.getElementById('phone').value,
+          service: (document.querySelector('input[name="service"]:checked') || {}).value || 'عام',
+          problem: document.getElementById('problem').value,
+          severity: document.getElementById('severity').value,
+          estimatedPrice: document.getElementById('estimatedPrice').textContent,
+          notes: document.getElementById('notes').value,
+          timestamp: new Date().toLocaleString()
+        };
+        
+        // Save to localStorage
+        saveRequest(formData);
+        
+        // Show success message
+        document.getElementById('serviceForm').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+        
+        // Log to console for debugging
+        console.log('Request saved:', formData);
+      });
+
+      // Initialize
+      calculatePrice();
+      document.addEventListener('DOMContentLoaded', renderSavedRequests);
+    </script>
+
+    <!-- Saved requests panel -->
+    <style>
+      .saved-actions{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+      .small-btn{padding:6px 10px;border-radius:6px;border:1px solid #ccc;background:#f6f8fa;cursor:pointer}
+      .small-btn.danger{background:#ffebe8;border-color:#ffb3ac}
+      .saved-request{border:1px solid rgba(0,0,0,0.06);padding:10px;border-radius:8px;margin-bottom:8px;background:#fff}
+      .sr-header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+      .sr-meta{font-size:12px;color:#666;margin-top:6px}
+      .sr-body{margin-top:8px}
+      .muted{color:#666}
+    </style>
+
+    <section class="form-section">
+      <h3>الطلبات المحفوظة</h3>
+      <div id="savedRequestsPanel" class="saved-requests-panel">
+        <!-- Filled dynamically -->
+      </div>
+    </section>
+  </body>
+</html>
